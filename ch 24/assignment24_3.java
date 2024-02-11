@@ -13,16 +13,16 @@ public class assignment24_3 {
 class MyLinkedList<E> extends MyAbstractList<E> {
  private Node<E> head, tail;
 
- /** Create a default list */
+ /** Create default list */
  public MyLinkedList() {
  }
 
- /** Create a list from an array of objects */
+ /** Create list from array of objects */
  public MyLinkedList(E[] objects) {
   super(objects);
  }
 
- /** Return the head element in the list */
+ /** Return head element in list */
  public E getFirst() {
   if (size == 0) {
    return null;
@@ -31,7 +31,7 @@ class MyLinkedList<E> extends MyAbstractList<E> {
   }
  }
 
- /** Return the last element in the list */
+ /** Return last element in list */
  public E getLast() {
   if (size == 0) {
    return null;
@@ -40,37 +40,35 @@ class MyLinkedList<E> extends MyAbstractList<E> {
   }
  }
 
- /** Add an element to the beginning of the list */
+ /** Add element to beginning of list */
  public void addFirst(E e) {
-  Node<E> newNode = new Node<E>(e); // Create a new node
-  newNode.next = head; // link the new node with the head
+  Node<E> newNode = new Node<E>(e); 
+  newNode.next = head; 
   newNode.previous = null;
-  head = newNode; // head points to the new node
-  size++; // Increase list size
+  head = newNode; 
+  size++; 
 
-  if (tail == null) // the new node is the only node in list
+  if (tail == null) 
    tail = head;
  }
 
- /** Add an element to the end of the list */
+ /** Add element to end of list */
  public void addLast(E e) {
-  Node<E> newNode = new Node<E>(e); // Create a new for element e
+  Node<E> newNode = new Node<E>(e);
 
   if (tail == null) {
-   head = tail = newNode; // The new node is the only node in list
+   head = tail = newNode;
   } else {
-   tail.next = newNode; // Link the new with the last node
+   tail.next = newNode;
    newNode.previous = tail;
    newNode.next = null;
-   tail = tail.next; // tail now points to the last node
+   tail = tail.next; 
   }
-
-  size++; // Increase size
  }
 
  @Override
- /** Add a new element at the specified index 
-  * in this list. The index of the head element is 0 */
+ /** Add new element at the specified index 
+  * in this list. The index of head element is 0 */
  public void add(int index, E e) {
   if (index == 0) {
    addFirst(e);
@@ -90,7 +88,7 @@ class MyLinkedList<E> extends MyAbstractList<E> {
  }
 
  /**
-  * Remove the head node and return the object that is contained in the
+  * Remove head node and return object that is contained in
   * removed node.
   */
  public E removeFirst() {
@@ -110,7 +108,7 @@ class MyLinkedList<E> extends MyAbstractList<E> {
  }
 
  /**
-  * Remove the last node and return the object that is contained in the
+  * Remove last node and return object that is contained in
   * removed node.
   */
  public E removeLast() {
@@ -131,8 +129,8 @@ class MyLinkedList<E> extends MyAbstractList<E> {
  }
 
  @Override
- /** Remove the element at the specified position in this 
-  *  list. Return the element that was removed from the list. */
+ /** Remove element at specified position in
+  *  list. Return element that was removed from list. */
  public E remove(int index) {
   if (index < 0 || index >= size) {
    return null;
@@ -156,7 +154,7 @@ class MyLinkedList<E> extends MyAbstractList<E> {
  }
 
  @Override
- /** Override toString() to return elements in the list */
+ /** Override toString() to return elements in list */
  public String toString() {
   StringBuilder result = new StringBuilder("[");
 
@@ -165,9 +163,9 @@ class MyLinkedList<E> extends MyAbstractList<E> {
    result.append(current.element);
    current = current.next;
    if (current != null) {
-    result.append(", "); // Separate two elements with a comma
+    result.append(", ");
    } else {
-    result.append("]"); // Insert the closing ] in the string
+    result.append("]"); 
    }
   }
 
@@ -175,14 +173,14 @@ class MyLinkedList<E> extends MyAbstractList<E> {
  }
 
  @Override
- /** Clear the list */
+ /** Clear list */
  public void clear() {
   size = 0;
   head = tail = null;
  }
 
  @Override
- /** Return true if this list contains the element e */
+ /** Return true if list contains element e */
  public boolean contains(E e) {
   if(size == 0) {
    return false;
@@ -200,7 +198,7 @@ class MyLinkedList<E> extends MyAbstractList<E> {
  }
 
  @Override
- /** Return the element at the specified index */
+ /** Return element at specified index */
  public E get(int index) {
   checkIndex(index);
   Node<E> result = head;
@@ -211,8 +209,8 @@ class MyLinkedList<E> extends MyAbstractList<E> {
  }
 
  @Override
- /** Return the index of the head matching element in 
-  *  this list. Return -1 if no match. */
+ /** Return index of head matching element in 
+  *  list. Return -1 if no match. */
  public int indexOf(E e) {
   if(size == 0) {
    return -1;
@@ -232,7 +230,7 @@ class MyLinkedList<E> extends MyAbstractList<E> {
  }
 
  @Override
- /** Return the index of the last matching element in 
+ /** Return index of last matching element in 
   *  this list. Return -1 if no match. */
  public int lastIndexOf(E e) {
   if(size == 0) {
@@ -253,8 +251,8 @@ class MyLinkedList<E> extends MyAbstractList<E> {
  }
 
  @Override
- /** Replace the element at the specified position 
-  *  in this list with the specified element. */
+ /** Replace element at specified position 
+  *  in list with specified element. */
  public E set(int index, E e) {
   checkIndex(index);
   Node<E> tmp = head;
