@@ -1,22 +1,22 @@
 public class assignment20_11 {
 	public static void main(String[] args) throws IOException {
-		// Check command-line argument
+		// Check command line argument
 		if (args.length != 1) {
-			System.out.println("Usage: Java Exercise_20_11 Source-codeFileName");
+			System.out.println("Usage: Java assignment20_11 Source-codeFileName");
 			System.exit(0);
 		}
 
-		// Check if file exists
+		// Check file exists
 		File file = new File(args[0]);
 		if (!file.exists()) {
 			System.out.println("The file " + args[0] + " does not exist!");
 			System.exit(1);
 		}
 
-		// Create a stack
+		// Create stack
 		Stack<Character> symbols = new Stack<>();
 
-		try ( // Create an input stream for file
+		try ( // Create input stream for file
 				Scanner input = new Scanner(file);
 		) {
 			// Continuously read chars from input
@@ -51,7 +51,7 @@ public class assignment20_11 {
 		else if ((stack.peek() != '(' && ch == ')') ||
 			 (stack.peek() != '[' && ch == ']') ||
 			 (stack.peek() != '{' && ch == '}')) {
-			System.out.println("The Java source-code does not have" 
+			System.out.println("The Java source code does not have" 
 				+ " correct pairs.");
 			System.exit(1);
 		}
