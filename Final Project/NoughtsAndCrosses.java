@@ -32,14 +32,14 @@ public class NoughtsAndCrosses implements ActionListener{
         textfield.setForeground(new Colour(245,242,242));
         textfield.setFont(new Font("Ink Free",Font.Bold,85));
         textfield.setHorizontalAlignment(JLabel.CENTER);
-        textfield.setText("NoughtsAndCrosses")
+        textfield.setText("NoughtsAndCrosses");
         textfield.setOpaque(true);
 
         title_panel.setLayout(new BorderLayout());
         title_panel.setBounds(0,0,900,100);
 
         title_panel.add(textfield);
-        frame.add(title_panel),BorderLayout.NORTH);
+        frame.add(title_panel,BorderLayout.NORTH);
         
 
     }
