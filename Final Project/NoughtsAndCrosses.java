@@ -32,20 +32,59 @@ public class NoughtsAndCrosses implements ActionListener{
         textfield.setForeground(new Colour(245,242,242));
         textfield.setFont(new Font("Ink Free",Font.Bold,85));
         textfield.setHorizontalAlignment(JLabel.CENTER);
-        textfield.setText("NoughtsAndCrosses");
+        textfield.setText("NoughtsAndCrosses")
         textfield.setOpaque(true);
 
         title_panel.setLayout(new BorderLayout());
         title_panel.setBounds(0,0,900,100);
 
-        title_panel.add(textfield);
-        frame.add(title_panel,BorderLayout.NORTH);
+        button_panel.setLayout(new GridLayout(3,3));
+        button_panel.setBackground(new Colour(240,237,237));
+
+        for(int i=0;i<9;i++) {
+            buttons[i] = new JButton();
+            button_panel.add(buttons[i]);
+            buttons[i].setFont(new Font("Comic Sans MS",Font.BOLD,120));
+            buttons[i].setFocusable(false);
+            buttons[i].addActionListener(this);
+
+        }
+        
         
 
+        title_panel.add(textfield);
+        frame.add(title_panel),BorderLayout.NORTH);
+        frame.add(button_panel);
+            
+
+        firstTurn();
     }
 
     @Override
     public void actionPerformed(ActionEvent e){
         // TODO Auto-generated method
+
+    }
+
+    public void firstTurn() {
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
+        if(random.nextInt(2)==0) {
+            player1_turn=true;
+            textfield.setText("X turn");
+        }
+        else {
+            player1_turn=false;
+            textfield.setText("O turn");
+
+    }
+
+    public void check() {
 
     }
